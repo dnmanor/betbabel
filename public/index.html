@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
+    <title>BookiesBabel</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Bookies Babel</h1>
+        <h3>Easily <span>convert</span> your bet booking code from one bookie to another with just one <span>click</span> and share with friends</h3>
+    </div>
+    <div class="main">
+        <form action="/" method="post">
+            <div class="from">
+                <label for="from">From</label>
+                <select name="bookiefrom" id="bookiefrom" class="bookies">
+                   //c
+                </select>
+                <label for="code">Booking code</label>
+                <input type="text" name="bookingcode" id="bookingcode" required  oninvalid="this.setCustomValidity('Please enter boking code')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="to">
+                <label for="to">To</label>
+                <select name="bookieto" id="bookieto" class="bookies">
+                  //c
+                </select>
+            </div>            
+            <input type="submit" value="convert">
+        </form>
+    </div>
+    <script src="./bookies.js" defer></script>
+</body>
+</html>
