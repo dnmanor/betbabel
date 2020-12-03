@@ -6,9 +6,15 @@ const puppeteer = require('puppeteer')
         const broswer = await puppeteer.launch({ args: ['--no-sandbox']})
         const page = await broswer.newPage()
         await page.goto(`https://www.${bookiefrom}.com`,  {waitUntil: 'load', timeout: 0})
-        console.log('done') 
+        await page.type('#mtSearch', bookingCode)
+        await page.click('#searchIconBetslip')
+        await page.waitForNavigation()
+        await page.screenshot({ path: screenshot })
 
+        console.log('done') 
+        
         await broswer.close()
+        console.log('See screenshot: ' + screenshot)
     }
    
 

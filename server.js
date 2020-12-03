@@ -1,4 +1,5 @@
-const {getBookingCode} = require('./puppeteer')
+// const {getBookingCode} = require('./puppeteer')
+const {getSlipFromBookingCode} = require('./fetch')
 
 const express = require ('express')
 const path = require('path')
@@ -17,20 +18,30 @@ app.get('/', (req, res)=> {
     res.sendFile('./public/index.html')
 })
 
+app.get('/error', (req, res)=> {
+    res.sendFile(path.join(__dirname, 'public/error.html'))
+})
+
 app.post('/', (req, res)=>{
     const data = req.body
-    const bookiefrom = data.bookiefrom
-    const bookieto = data.bookieto
-    const bookingCode = data.bookingCode
+    const bookiefrom = `${data.bookiefrom}`
+    const bookieto = `${data.bookieto}`
+    const bookingCode = `${data.bookingcode}`
 
     if (bookiefrom === bookieto){
         console.log('error');
-        // do something in ui
+        res.redirect('/error')
     }else{
-        console.log('initiating pup function')
-        getBookingCode(bookiefrom, bookieto, bookingCode)
+        console.log('Code Recieved')
+        // getBookingCode(bookiefrom, bookieto, bookingCode)
+        getSlipFromBookingCode(bookingCode, bookiefrom)
     }
 })
+
+app.post('/error', (req, res)=>{
+    res.redirect('/')
+})
+
 
 app.listen(PORT, ()=>{
     console.log('app started on', PORT)

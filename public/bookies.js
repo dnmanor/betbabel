@@ -1,4 +1,4 @@
-const bookies = ['betway', 'soccabet', 'betpawa', 'sportybet']
+const bookies = ['betway', 'betpawa', 'sportybet']
 
 
 
@@ -9,4 +9,3 @@ bookies.forEach(bookie =>{
     document.getElementsByClassName('bookies')[1].innerHTML += filler
     // console.log(filler);
 })
-
