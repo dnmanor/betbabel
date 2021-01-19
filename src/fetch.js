@@ -1,4 +1,5 @@
-const axios = require('axios')
+const axios = require('axios');
+const { response } = require('express');
 
 function getSlipFromBookingCode(bookingCode, bookiefrom){
   switch (bookiefrom) {
@@ -9,7 +10,7 @@ function getSlipFromBookingCode(bookingCode, bookiefrom){
       betpawa(bookingCode)
       break;
     case 'sportybet':
-      sportybet()
+      sportybet(bookingCode)
       break;
 
     default:
@@ -41,6 +42,7 @@ const betway = (bookingCode) => {
    const JSONdata = rawData.split("/").join("")
    const useableData = JSON.parse(JSONdata)
    console.log(useableData)
+  //  createBetwaySlip() 
 })
 }
 
@@ -85,7 +87,7 @@ const sportybet = (bookingCode) => {
     "method": "GET",
     "mode": "cors",
     "credentials": "include"
-  })
+  }).then((response) => {response.data})
 }
 
 
