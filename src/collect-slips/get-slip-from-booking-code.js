@@ -1,4 +1,3 @@
-const axios = require("axios");
 const { getBetwayEvents } = require("./betway");
 const { getBetPawaEvents } = require("./betpawa");
 const { getSportybetEvents } = require("./sportybet");
