@@ -1,5 +1,5 @@
 // const {getBookingCode} = require('./puppeteer')
-const {getSlipFromBookingCode} = require('./fetch')
+const {getSlipFromBookingCode} = require('./public/collect-slips/get-slip-from-booking-code')
 
 const express = require ('express')
 const path = require('path')
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.get('/', (req, res)=> {
     res.sendFile('./public/index.html')
 })
-
+ 
 app.get('/error', (req, res)=> {
     res.sendFile(path.join(__dirname, 'public/error.html'))
 })
@@ -34,7 +34,7 @@ app.post('/', (req, res)=>{
     }else{
         console.log('Code Recieved')
         // getBookingCode(bookiefrom, bookieto, bookingCode)
-        getSlipFromBookingCode(bookingCode, bookiefrom)
+        getSlipFromBookingCode(bookingCode, bookiefrom, bookieto)
     }
 })
 
