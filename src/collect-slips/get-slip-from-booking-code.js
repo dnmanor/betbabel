@@ -16,7 +16,6 @@ async function getSlipFromBookingCode(bookingCode, bookiefrom, bookieTo) {
 
     default:
       return bookingCode;
-      
   }
 }
 
@@ -36,6 +35,8 @@ const betway = async (bookingCode, bookieTo) => {
     default:
       break;
   }
+
+  return eventsData;
 };
 
 const betpawa = async (bookingCode, bookieTo) => {
@@ -54,6 +55,8 @@ const betpawa = async (bookingCode, bookieTo) => {
     default:
       break;
   }
+
+  return eventsData;
 };
 
 const sportybet = async (bookingCode, bookieTo) => {
@@ -72,6 +75,8 @@ const sportybet = async (bookingCode, bookieTo) => {
     default:
       break;
   }
+
+  return eventsData;
 };
 
 exports.getSlipFromBookingCode = getSlipFromBookingCode;
