@@ -32,8 +32,12 @@ app.post("/", (req, res) => {
     res.redirect("/error");
   } else {
     console.log("Code Recieved");
-    // getBookingCode(bookiefrom, bookieto, bookingCode)
-    getSlipFromBookingCode(bookingCode, bookiefrom, bookieto);
+    const bookingCode = getSlipFromBookingCode(
+      bookingCode,
+      bookiefrom,
+      bookieto
+    );
+    res.status(200).send({ result: bookingCode });
   }
 });
 
